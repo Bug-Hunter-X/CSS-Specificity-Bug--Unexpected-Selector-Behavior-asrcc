@@ -1,0 +1,26 @@
+The solution involves restructuring the CSS to explicitly manage specificity and avoiding unexpected selector combinations:
+
+```css
+div {
+  color: blue;
+}
+
+.special-div {
+  color: red;
+}
+
+#special-id {
+  color: green;
+}
+
+/* More specific rules should be placed before less specific rules to ensure correct cascading. */
+#special-id.special-div {
+  color: purple;
+}
+
+#special-id div {
+  color: yellow;
+}
+```
+
+This revised CSS is more readable and predictable.  It demonstrates a best practice where more specific rules are written earlier to ensure proper cascading and prevent unexpected styling results. By strategically ordering the selectors, the cascade behaves predictably, avoiding the prior unexpected outcome.
